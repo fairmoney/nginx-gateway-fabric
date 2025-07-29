@@ -292,7 +292,7 @@ spec:
         emptyDir: {}
       - name: nginx-includes-bootstrap
         configMap:
-          name: nginx-includes-bootstrap
+          name: {{ include "nginx-gateway.fullname" . }}-includes-bootstrap
       {{- if .Values.nginx.plus }}
       - name: nginx-lib
         emptyDir: {}

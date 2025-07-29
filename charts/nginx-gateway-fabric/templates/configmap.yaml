@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nginx-includes-bootstrap
+  name: {{ include "nginx-gateway.fullname" . }}-includes-bootstrap
   namespace: {{ .Release.Namespace }}
   labels:
   {{- include "nginx-gateway.labels" . | nindent 4 }}
