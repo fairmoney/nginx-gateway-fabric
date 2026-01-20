@@ -272,6 +272,20 @@ affinity: {}
 # -- The topology spread constraints for the NGINX Gateway Fabric pod.
 topologySpreadConstraints: []
 
+# -- FairMoney added PodDisruptionBudget configuration
+podDisruptionBudget:
+  # -- Minimum number of pods that must be available during a disruption
+  minAvailable: 1
+
+  # -- Maximum number of pods that can be unavailable during a disruption
+  # Cannot be set if minAvailable is set
+  maxUnavailable: null
+
+  # -- Policy for handling unhealthy pods during evictions
+  # Supported values: IfHealthyBudget, AlwaysAllow
+  # see https://kubernetes.io/docs/tasks/run-application/configure-pdb/#unhealthy-pod-eviction-policy
+  unhealthyPodEvictionPolicy: null
+
 serviceAccount:
   # -- Set of custom annotations for the NGINX Gateway Fabric service account.
   annotations: {}
